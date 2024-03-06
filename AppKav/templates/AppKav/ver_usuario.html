@@ -1,0 +1,49 @@
+{% extends "AppKav/padre.html" %}
+
+{% load static %}
+
+{% block title%} Usuarios {% endblock %}
+
+{% block Proyectos %} {% endblock %}
+
+{% block Usuarios %}
+<section class="page-section bg-primary text-white mb-0" id="Usuarios">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Usuarios</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <form action="/AppKav/ver_usuario/" method="GET"> 
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="nombre" placeholder="Nombre" data-sb-validations="required" />
+                    <label for="name">Nombre</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Se requiere un nombre.</div>
+                </div>
+                <input type="submit" value:"Buscar" class="btn btn-xl btn-outline-light">
+            </form>
+
+            <ol>
+                {% for usuario in resultado %}
+                
+                <li>
+                <p>Nombre: {{usuario.nombre}}</p>
+                <p>Email: {{usuario.apellido}}</p>
+                <p>Consulta: {{usuario.edad}}</p>
+                <p>Consulta: {{usuario.email}}</p>
+                </li>
+                
+                {% endfor %}
+                </ol>
+        </div>
+        
+    </div>
+</section>
+{% endblock %}
+
+{% block Consultas %} {% endblock %}
